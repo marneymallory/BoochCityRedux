@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function EditBoochForm(props) {
   const { booch } = props;
 
-  function handlingEditBoochFormSubmission(event) {
+  function handlingEditBoochFormSubmission(booch) {
     event.preventDefault();
     props.onEditBooch({
       name: booch.target.name.value,
