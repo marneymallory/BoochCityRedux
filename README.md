@@ -1,4 +1,5 @@
-<img width="1440" alt="Screen Shot 2021-07-02 at 9 47 07 AM" src="https://user-images.githubusercontent.com/79782193/124313243-10f5a280-db1d-11eb-96cf-33455bc9798b.png">
+<img width="1440" alt="Screen Shot 2021-07-02 at 12 07 49 PM" src="https://user-images.githubusercontent.com/79782193/124323761-4e166080-db2e-11eb-9214-6b1ca710d6d4.png">
+
 
 
 # Getting Started with Create React App
