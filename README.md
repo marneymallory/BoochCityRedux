@@ -1,13 +1,48 @@
-# 🍻 Booch City! 🍻 
+# 🍻 ✨Booch City!✨ 🍻 
 
+## React Independent Project: Week 2
 
+### 7/2/21 by Marney Mallory
 
+## Description
+
+This week's independent project was to build a React web application that would enable a bar or kombucha store can track their kegs. 
+
+## Objectives 
+
+- As a user, I want to see a list/menu of all available kegs. For each keg, I want to  see its name, brand, price and alcoholContent (or perhaps something like flavor for a kombucha store).
+- As a user, I want to submit a form to add a new keg to a list.
+- As a user, I want to be able to click on a keg to see its detail page.
+- As a user, I want to see how many pints are left in a keg. Hint: A full keg has roughly 124 pints.
+- As a user, I want to be able to click a button next to a keg whenever I sell a pint of it. This should decrease the number of pints left by 1. Pints should not be able to go below 0.
+
+## Technologies Used
+
+* 📝 _HTML_
+* 🎨 _CSS_
+* ☕ _JavaScript_
+* 🧭 _Node_
+* 💾 _Webpack_
+* 🥾 _Bootstrap_
+* ⚛ _React_
+
+## App Planning
 
 <img width="1440" alt="Screen Shot 2021-07-02 at 12 07 49 PM" src="https://user-images.githubusercontent.com/79782193/124323761-4e166080-db2e-11eb-9214-6b1ca710d6d4.png">
 
+## Setup Instructions
 
+1. Clone the repository: `$ git clone https://github.com/marneymallory/BoochCity`.
+2. Navigate to the `BoochCity/` directory on your computer.
+3. Open with your preferred text editor to view the code base.
+4. To start a development server and view the project in the browser:
 
-# Getting Started with Create React App
+    * _Navigate to `BoochCity/` in your command line_
+    * _Run the command `npm install` to install dependencies_
+    * _Optionally, run the command `npm run build` to make a bundle of the files_
+    * _Finally, run the command `npm run start` to start a development server_
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -77,3 +112,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## 🐛 Known Bugs
+* _Haven't figured out how to do last two required functionalities. To Be Continued..._
+
+## License
+_MIT © 2021 Marney Mallory_
+
+## Contact Information
+_Marney Mallory <marney.mallory@gmail.com>_
+
