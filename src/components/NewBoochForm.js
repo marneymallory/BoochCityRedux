@@ -4,13 +4,13 @@ import PropTypes from "prop-types";
 import ReusableForm from "./ReusableForm";
 
 function NewBoochForm(props) {
-  function handleNewBoochFormSubmission(booch) {
+  function handleNewBoochFormSubmission(event) {
     event.preventDefault();
     props.onNewBoochCreation({
-      name:booch.target.name.value,
-      brand:booch.target.brand.value,
-      price:booch.target.price.value,
-      flavor:booch.target.flavor.value,
+      name: event.target.name.value,
+      brand: event.target.brand.value,
+      price: event.target.price.value,
+      flavor: event.target.flavor.value,
       id: v4(),
     });
   }

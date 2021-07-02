@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from "react-bootstrap/Button";
+
 
 function BoochDetail(props) {
   const { booch, onClickingDelete, onClickingEdit } = props;
@@ -11,13 +11,13 @@ function BoochDetail(props) {
       <h3>
         {booch.name} - {booch.brand} - {booch.price} - {booch.flavor}
       </h3>
-      <Button variant="primary" onClick={onClickingEdit}>
+      <button className="btn btn-primary" onClick={onClickingEdit}>
         Update Booch
-      </Button>
-      <Button variant="danger" onClick={() => onClickingDelete(booch.id)}>
+      </button>
+      <button className="btn btn-primary" onClick={() => onClickingDelete(booch.id)}>
         {" "}
         Delete Booch
-      </Button>
+      </button>
       <hr />
     </React.Fragment>
   );

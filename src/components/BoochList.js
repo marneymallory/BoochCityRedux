@@ -6,7 +6,7 @@ function BoochList(props) {
   return (
     <React.Fragment>
       {props.boochList.map((booch) => (
-        <Event
+        <Booch
           whenBoochClicked={props.onBoochSelection}
           name={booch.name}
           brand={booch.brand}

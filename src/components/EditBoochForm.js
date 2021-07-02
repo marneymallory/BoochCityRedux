@@ -5,14 +5,14 @@ import PropTypes from "prop-types";
 function EditBoochForm(props) {
   const { booch } = props;
 
-  function handlingEditBoochFormSubmission(booch) {
+  function handlingEditBoochFormSubmission(event) {
     event.preventDefault();
     props.onEditBooch({
-      name: booch.target.name.value,
-      brand: booch.target.brand.value,
-      price: booch.target.price.value,
-      flavor: booch.target.flavor.value,
-      id: booch.id,
+      name: event.target.name.value,
+      brand: event.target.brand.value,
+      price: event.target.price.value,
+      flavor: event.target.flavor.value,
+      id: event.id,
     });
   }
   return (

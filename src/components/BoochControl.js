@@ -2,7 +2,6 @@ import React from "react";
 import NewBoochForm from "./NewBoochForm";
 import BoochList from "./BoochList";
 import BoochDetail from "./BoochDetail";
-import Button from "react-bootstrap/Button";
 import EditBoochForm from './EditBoochForm'; 
 
 class BoochControl extends React.Component {
@@ -33,7 +32,7 @@ class BoochControl extends React.Component {
   handleAddNewBooch = (newBooch) => {
     const newMasterBoochList = this.state.masterBoochList.concat(newBooch);
     this.setState({
-      masterBoochList: newMasterEventList,
+      masterBoochList: newMasterBoochList,
       formVisibleOnPage: false,
     });
   };
@@ -108,9 +107,9 @@ class BoochControl extends React.Component {
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <Button variant="primary" onClick={this.handleClick}>
+        <button className="btn btn-primary" onClick={this.handleClick}>
           {buttonText}
-        </Button>
+        </button>
       </React.Fragment>
     );
   }
