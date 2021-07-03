@@ -6,7 +6,7 @@
 
 ## Description
 
-This week's independent project was to build a React web application that would enable a bar or kombucha store can track their kegs. 
+This week's independent project was to build a React web application that would enable a bar or kombucha store to track their kegs. 
 
 ## Objectives 
 

@@ -6,17 +6,10 @@ function Header() {
     <React.Fragment>
       <div>
         <container>
-        
-              <h1>
-                🌇 Welcome to Booch City!
-              </h1>
-              <h3>Handcrafted kombucha from our heart and soul to
-                yours 💜
-              </h3>
-             
+          <h1>🌇 Welcome to Booch City! 🌇</h1>
+          <h3>Handcrafted kombucha from our heart and soul to yours 💜</h3>
 
-              <img src = {require("./../img/booch.jpeg")}/>
-
+          <img src={require("./../img/booch.jpeg")} />
         </container>
       </div>
     </React.Fragment>
