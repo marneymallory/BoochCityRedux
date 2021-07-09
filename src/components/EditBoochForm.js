@@ -12,9 +12,10 @@ function EditBoochForm(props) {
       brand: event.target.brand.value,
       price: event.target.price.value,
       flavor: event.target.flavor.value,
-      id: event.id,
+      id: booch.id,
     });
   }
+
   return (
     <React.Fragment>
       <ReusableForm

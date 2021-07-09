@@ -11,6 +11,7 @@ function NewBoochForm(props) {
       brand: event.target.brand.value,
       price: event.target.price.value,
       flavor: event.target.flavor.value,
+      amountLeft: 124,
       id: v4(),
     });
   }
@@ -30,4 +31,3 @@ NewBoochForm.propTypes = {
 };
 
 export default NewBoochForm;
-

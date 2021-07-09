@@ -12,6 +12,7 @@ function BoochList(props) {
           brand={booch.brand}
           price={booch.price}
           flavor={booch.flavor}
+          amountLeft={booch.amountLeft}
           id={booch.id}
           key={booch.id}
         />

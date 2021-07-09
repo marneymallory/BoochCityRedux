@@ -2,7 +2,7 @@ import React from "react";
 import NewBoochForm from "./NewBoochForm";
 import BoochList from "./BoochList";
 import BoochDetail from "./BoochDetail";
-import EditBoochForm from './EditBoochForm'; 
+import EditBoochForm from "./EditBoochForm";
 
 class BoochControl extends React.Component {
   constructor(props) {
@@ -69,9 +69,22 @@ class BoochControl extends React.Component {
     });
   };
 
+  handleSellBooch = (id) => {
+    const selectedBooch = this.state.masterBoochList.filter(
+      (booch) => booch.id === id
+    )[0];
+    if (selectedBooch.amountLeft > 0) {
+      selectedBooch.amountLeft -= 1;
+    } else {
+      selectedBooch.amountLeft = "All Out";
+    }
+    this.setState({ selectedBooch: selectedBooch });
+  };
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
+
     if (this.state.editing) {
       currentlyVisibleState = (
         <EditBoochForm
@@ -86,6 +99,7 @@ class BoochControl extends React.Component {
           booch={this.state.selectedBooch}
           onClickingDelete={this.handleDeletingBooch}
           onClickingEdit={this.handleEditClick}
+          onClickingSell={this.handleSellBooch}
         />
       );
       buttonText = "Return to Booch List";
@@ -99,6 +113,7 @@ class BoochControl extends React.Component {
         <BoochList
           boochList={this.state.masterBoochList}
           onBoochSelection={this.handleChangingSelectedBooch}
+          onClickSellBooch={this.handleSellBooch}
         />
       );
       buttonText = "Add Booch";

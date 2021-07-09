@@ -1,11 +1,13 @@
-import React from "react"; 
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 function Booch(props) {
   return (
     <React.Fragment>
       <div onClick={() => props.whenBoochClicked(props.id)}>
-        <h3>{props.name} - {props.brand} - {props.price} - {props.flavor}</h3>
+        <h3>
+          {props.name} - {props.brand} - {props.price} - {props.flavor}
+        </h3>
       </div>
     </React.Fragment>
   );
@@ -15,8 +17,10 @@ Booch.propTypes = {
   brand: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   flavor: PropTypes.string.isRequired,
+  amountLeft: PropTypes.number,
   id: PropTypes.string,
-  whenBoochClicked: PropTypes.func
+  whenBoochClicked: PropTypes.func,
+  onClickSellBooch: PropTypes.func,
 };
 
 export default Booch;
