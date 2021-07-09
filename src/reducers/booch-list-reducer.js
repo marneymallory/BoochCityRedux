@@ -1,4 +1,5 @@
 export default (state = {}, action) => {
+  
   const { name, brand, price, flavor, amountLeft, id } = action;
   switch (action.type) {
     case 'ADD_BOOCH':
@@ -12,6 +13,10 @@ export default (state = {}, action) => {
           id: id,
         },
       });
+      case 'DELETE_BOOCH':
+        let newState = { ...state };
+        delete newState[id];
+        return newState;
   default: 
     return state;
   }
