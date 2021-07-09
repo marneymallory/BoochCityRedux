@@ -1,4 +1,4 @@
-import boochListReducer from "../../booch-list-reducer";
+import boochListReducer from "../../reducers/booch-list-reducer";
 
 describe('boochListReducer', () => {
   let action; 
