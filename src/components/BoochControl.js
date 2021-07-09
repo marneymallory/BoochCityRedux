@@ -46,14 +46,14 @@ class BoochControl extends React.Component {
     this.setState({formVisibleOnPage: false});
     };
   };
-
   handleDeletingBooch = (id) => {
-    const newMasterBoochList = this.state.masterBoochList.filter(
-      (booch) => booch.id !== id
-    );
-    this.setState({
-      masterBoochList: newMasterBoochList,
-      selectedBooch: null,
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_BOOCH',
+      id: id
+    }
+    dispatch(action);
+    this.setState({selectedBooch: null
     });
   };
 
