@@ -1,3 +1,18 @@
 export default (state = {}, action) => {
-  return state;
+  const { name, brand, price, flavor, amountLeft, id } = action;
+  switch (action.type) {
+    case 'ADD_BOOCH':
+      return Object.assign({}, state, {
+        [id]: {
+          name: name,
+          brand: brand,
+          price: price,
+          flavor: flavor,
+          amountLeft: amountLeft,
+          id: id,
+        },
+      });
+  default: 
+    return state;
+  }
 };
