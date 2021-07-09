@@ -3,13 +3,14 @@ import NewBoochForm from "./NewBoochForm";
 import BoochList from "./BoochList";
 import BoochDetail from "./BoochDetail";
 import EditBoochForm from "./EditBoochForm";
+import { connect } from "react-redux";
 
 class BoochControl extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
       formVisibleOnPage: false,
-      masterBoochList: [],
       selectedBooch: null,
       editing: false,
     };
@@ -30,11 +31,20 @@ class BoochControl extends React.Component {
   };
 
   handleAddNewBooch = (newBooch) => {
-    const newMasterBoochList = this.state.masterBoochList.concat(newBooch);
-    this.setState({
-      masterBoochList: newMasterBoochList,
-      formVisibleOnPage: false,
-    });
+    const { dispatch } = this.state.props;
+    const { id, name, group, price, flavor, amountLeft } = newBooch;
+    const action = {
+      type: 'ADD_BOOCH',
+      id: id,
+      name: name,
+      brand: brand, 
+      price: price, 
+      flavor: flavor,
+      amountLeft: amountLeft,
+    }
+    dispatch(action);
+    this.setState({formVisibleOnPage: false});
+    };
   };
 
   handleDeletingBooch = (id) => {
@@ -129,5 +139,5 @@ class BoochControl extends React.Component {
     );
   }
 }
-
+BoochControl = connect()(BoochControl);
 export default BoochControl;
