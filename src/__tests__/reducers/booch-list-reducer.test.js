@@ -46,7 +46,7 @@ describe('boochListReducer', () => {
 
       test ('Should successfully delete a booch',() => {
         action = {
-          type: 'DELETE_BOOCH'
+          type: 'DELETE_BOOCH',
           id: 1
         };
         expect(boochListReducer(currentState, action)).toEqual({
@@ -58,4 +58,4 @@ describe('boochListReducer', () => {
                   id: 2 }
         });
     });
-})
+});
