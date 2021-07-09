@@ -8,7 +8,7 @@ describe('boochListReducer', () => {
      price: 40.0,
      flavor: "Blueberry",
      amountLeft: 110,
-     id: 1,
+     id: 1
    },
    2: {
      name: "Ginger Zing",
@@ -16,7 +16,8 @@ describe('boochListReducer', () => {
      price: 40.0,
      flavor: "Ginger",
      amountLeft: 80,
-     id: 2 },
+     id: 2 
+    },
    }
 
   test("Should return default state if there is no action type passed into the reducer", () => {
@@ -32,17 +33,18 @@ describe('boochListReducer', () => {
       price: price,
       flavor: flavor,
       amountLeft: amountLeft,
-      id: id
+      id: id,
     };
     expect(boochListReducer({}, action)).toEqual({
       [id] : {
-        name: name,
+      name: name,
       brand: brand,
       price: price,
       flavor: flavor,
       amountLeft: amountLeft,
-      id: id }
-      };
+      id: id 
+      }
+    })
 
       test ('Should successfully delete a booch',() => {
         action = {
@@ -58,4 +60,5 @@ describe('boochListReducer', () => {
                   id: 2 }
         });
     });
-});
+  })
+})
