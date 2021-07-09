@@ -69,13 +69,20 @@ class BoochControl extends React.Component {
   };
 
   handleEditingBoochInList = (boochToEdit) => {
-    const editedMasterBoochList = this.state.masterBoochList
-      .filter((booch) => booch.id !== this.state.selectedBooch.id)
-      .concat(boochToEdit);
+       const { dispatch } = this.props;
+    const { id, name, brand, price, flavor, amountLeft } = boochToEdit;
+    const action = {
+      id: id,
+      name: name,
+      brand: brand, 
+      price: price, 
+      flavor: flavor,
+      amountLeft: amountLeft,
+    }
+    dispatch(action);
     this.setState({
-      masterBoochList: editedMasterBoochList,
       editing: false,
-      selectedBooch: null,
+      selectedBooch: null
     });
   };
 
@@ -138,6 +145,6 @@ class BoochControl extends React.Component {
       </React.Fragment>
     );
   }
-}
+
 BoochControl = connect()(BoochControl);
 export default BoochControl;
