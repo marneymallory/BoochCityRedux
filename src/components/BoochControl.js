@@ -145,6 +145,11 @@ class BoochControl extends React.Component {
       </React.Fragment>
     );
   }
+const mapStateToProps = state => {
+  return {
+    masterBoochList: state
+  }
+}
 
-BoochControl = connect()(BoochControl);
+BoochControl = connect(mapStateToProps)(BoochControl);
 export default BoochControl;
