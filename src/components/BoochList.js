@@ -5,7 +5,8 @@ import PropTypes from "prop-types";
 function BoochList(props) {
   return (
     <React.Fragment>
-      {props.boochList.map((booch) => (
+      <hr />
+      {Object.values(props.boochList).map((booch) => (
         <Booch
           whenBoochClicked={props.onBoochSelection}
           name={booch.name}
@@ -22,7 +23,7 @@ function BoochList(props) {
 }
 
 BoochList.propTypes = {
-  boochList: PropTypes.array,
+  boochList: PropTypes.object,
   onBoochSelection: PropTypes.func,
 };
 

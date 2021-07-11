@@ -4,6 +4,7 @@ import BoochList from "./BoochList";
 import BoochDetail from "./BoochDetail";
 import EditBoochForm from "./EditBoochForm";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class BoochControl extends React.Component {
   constructor(props) {
@@ -61,12 +62,10 @@ class BoochControl extends React.Component {
     this.setState({ editing: true });
   };
 
-  handleChangingSelectedBooch = (id) => {
-    const selectedBooch = this.state.masterBoochList.filter(
-      (booch) => booch.id === id
-    )[0];
-    this.setState({ selectedBooch: selectedBooch });
-  };
+handleChangingSelectedBooch = (id) => {
+  const selectedBooch = this.props.masterBoochList[id];
+  this.setState({selectedBooch: selectedBooch});
+}
 
   handleEditingBoochInList = (boochToEdit) => {
        const { dispatch } = this.props;
@@ -126,13 +125,8 @@ class BoochControl extends React.Component {
       );
       buttonText = "Return to Booch List";
     } else {
-      currentlyVisibleState = (
-        <BoochList
-          boochList={this.state.masterBoochList}
-          onBoochSelection={this.handleChangingSelectedBooch}
-          onClickSellBooch={this.handleSellBooch}
-        />
-      );
+  
+      currentlyVisibleState = <BoochList boochList={this.props.masterBoochList} onBoochSelection={this.handleChangingSelectedBooch} />;
       buttonText = "Add Booch";
     }
 
@@ -145,6 +139,9 @@ class BoochControl extends React.Component {
       </React.Fragment>
     );
   }
+BoochControl.propTypes = {
+  masterBoochList: PropTypes.object
+};
 const mapStateToProps = state => {
   return {
     masterBoochList: state
