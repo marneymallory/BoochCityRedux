@@ -12,4 +12,22 @@ describe("booch actions", () => {
       type: "TOGGLE_FORM",
     });
   });
+    it("addBooch should create ADD_BOOCH action", () => {
+      expect(actions.addBooch({
+          name: "Cosmic Cranberry",
+          brand: "GT's",
+          price: 40,
+          flavor:"Cranberry",
+          amountLeft:100,
+          id: 1
+        })).toEqual({
+        type: "ADD_BOOCH",
+         name: "Cosmic Cranberry",
+          brand: "GT's",
+          price: 40,
+          flavor:"Cranberry",
+          amountLeft:100,
+        id: 1,
+      });
+    });
 });

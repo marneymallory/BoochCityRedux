@@ -5,9 +5,9 @@ import BoochDetail from "./BoochDetail";
 import EditBoochForm from "./EditBoochForm";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import * as a from "./../actions";
 
 class BoochControl extends React.Component {
-
   constructor(props) {
     super(props);
     console.log(props);
@@ -25,39 +25,22 @@ class BoochControl extends React.Component {
       });
     } else {
       const { dispatch } = this.props;
-      const action = {
-        type: "TOGGLE_FORM"
-      }
+      const action = a.toggleForm();
       dispatch(action);
     }
   };
-
-  handleAddNewBooch = (newBooch) => {
-    const { dispatch } = this.state.props;
-    const { id, name, brand, price, flavor, amountLeft } = newBooch;
-    const action = {
-      type: 'ADD_BOOCH',
-      id: id,
-      name: name,
-      brand: brand, 
-      price: price, 
-      flavor: flavor,
-      amountLeft: amountLeft,
-    }
+  handleAddingNewBoochToList = (newBooch) => {
+    const { dispatch } = this.props;
+    const action = a.addBooch(newBooch);
     dispatch(action);
-    const action2 = {
-      type: 'TOGGLE_FORM'
-    }
+    const action2 = a.toggleForm();
     dispatch(action2);
   };
   handleDeletingBooch = (id) => {
     const { dispatch } = this.props;
-    const action = {
-      type: 'DELETE_BOOCH',
-      id: id
-    }
+    const action = a.deleteBooch(id);
     dispatch(action);
-    this.setState({selectedBooch: null});
+    this.setState({ selectedBooch: null });
   };
 
   handleEditClick = () => {
@@ -66,30 +49,23 @@ class BoochControl extends React.Component {
 
   handleChangingSelectedBooch = (id) => {
     const selectedBooch = this.props.masterBoochList[id];
-    this.setState({selectedBooch: selectedBooch});
-  }
+    this.setState({ selectedBooch: selectedBooch });
+  };
 
   handleEditingBoochInList = (boochToEdit) => {
     const { dispatch } = this.props;
-    const { id, name, brand, price, flavor, amountLeft } = boochToEdit;
-    const action = {
-      id: id,
-      name: name,
-      brand: brand, 
-      price: price, 
-      flavor: flavor,
-      amountLeft: amountLeft,
-    }
+    const action = a.addBooch(boochToEdit);
     dispatch(action);
     this.setState({
       editing: false,
-      selectedBooch: null
+      selectedBooch: null,
     });
   };
 
   handleSellBooch = (id) => {
     const selectedBooch = this.state.masterBoochList.filter(
-      (booch) => booch.id === id)[0];
+      (booch) => booch.id === id
+    )[0];
     if (selectedBooch.amountLeft > 0) {
       selectedBooch.amountLeft -= 1;
     } else {
@@ -126,8 +102,12 @@ class BoochControl extends React.Component {
       );
       buttonText = "Return to Booch List";
     } else {
-  
-      currentlyVisibleState = <BoochList boochList={this.props.masterBoochList} onBoochSelection={this.handleChangingSelectedBooch} />;
+      currentlyVisibleState = (
+        <BoochList
+          boochList={this.props.masterBoochList}
+          onBoochSelection={this.handleChangingSelectedBooch}
+        />
+      );
       buttonText = "Add Booch";
     }
 
