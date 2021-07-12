@@ -29,7 +29,7 @@ This week's independent project was to build a React web application that would 
 * 💾 _Webpack_
 * 🥾 _Bootstrap_
 * ⚛ _React_
-* _Redux_
+* :redux: _Redux_
 
 ## App Planning
 
