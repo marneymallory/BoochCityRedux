@@ -29,7 +29,7 @@ class BoochControl extends React.Component {
       dispatch(action);
     }
   };
-  handleAddingNewBoochToList = (newBooch) => {
+  handleAddNewBooch = (newBooch) => {
     const { dispatch } = this.props;
     const action = a.addBooch(newBooch);
     dispatch(action);

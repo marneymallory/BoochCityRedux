@@ -2,6 +2,7 @@ import rootReducer from "../../reducers/index";
 import { createStore } from 'redux';
 import formVisibleReducer from "../../reducers/form-visible-reducer";
 import boochListReducer from "../../reducers/booch-list-reducer";
+import * as c from "./../../actions/ActionTypes";
 
 let store = createStore(rootReducer);
 
@@ -25,12 +26,13 @@ describe("rootReducer", () => {
   });
   test("Check that ADD_BOOCH action works for boochListReducer and root reducer", () => {
     const action = {
-      id: id,
-      name: name,
-      brand: brand,
-      price: price,
-      flavor: flavor,
-      amountLeft: amountLeft,
+      type: c.ADD_BOOCH,
+      id: 1,
+      name: "Mystic Mango",
+      brand: "GT's",
+      price: 60,
+      flavor: "mango",
+      amountLeft: 50,
     };
     store.dispatch(action);
     expect(store.getState().masterBoochList).toEqual(
