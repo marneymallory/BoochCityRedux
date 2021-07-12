@@ -4,7 +4,7 @@ import BoochList from "./BoochList";
 import BoochDetail from "./BoochDetail";
 import EditBoochForm from "./EditBoochForm";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import { PropTypes } from "prop-types";
 import * as a from "./../actions";
 
 class BoochControl extends React.Component {
