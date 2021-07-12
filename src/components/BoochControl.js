@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 class BoochControl extends React.Component {
+
   constructor(props) {
     super(props);
     console.log(props);
@@ -97,7 +98,7 @@ handleChangingSelectedBooch = (id) => {
     this.setState({ selectedBooch: selectedBooch });
   };
 
-  render() {
+  render(); {
     let currentlyVisibleState = null;
     let buttonText = null;
 
@@ -139,14 +140,18 @@ handleChangingSelectedBooch = (id) => {
       </React.Fragment>
     );
   }
+
 BoochControl.propTypes = {
-  masterBoochList: PropTypes.object
+  masterBoochList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool,
 };
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    masterBoochList: state
-  }
-}
+    masterBoochList: state.masterBoochList,
+    formVisibleOnPage: state.formVisibleOnPage,
+  };
+};
 
 BoochControl = connect(mapStateToProps)(BoochControl);
+
 export default BoochControl;
