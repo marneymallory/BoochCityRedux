@@ -1,19 +1,10 @@
-import { createStore } from "redux";
-import reducer from "./reducers/booch-list-reducer";
-import { Provider } from "react-redux";
+import formVisibleReducer from "./form-visible-reducer";
+import boochListReducer from "./booch-list-reducer";
+import { combineReducers } from "redux";
 
+const rootReducer = combineReducers({
+  formVisibleOnPage: formVisibleReducer,
+  masterBoochList: boochListReducer,
+});
 
-const store = createStore(reducer);
-
-store.subscribe(() =>
-console.log(store.getState())
-);
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById("root")
-);
-
-
-
+export default rootReducer;
