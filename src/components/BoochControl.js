@@ -12,7 +12,6 @@ class BoochControl extends React.Component {
     super(props);
     console.log(props);
     this.state = {
-      formVisibleOnPage: false,
       selectedBooch: null,
       editing: false,
     };
@@ -21,20 +20,21 @@ class BoochControl extends React.Component {
   handleClick = () => {
     if (this.state.selectedBooch != null) {
       this.setState({
-        formVisibleOnPage: false,
         selectedBooch: null,
         editing: false,
       });
     } else {
-      this.setState((prevState) => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage,
-      }));
+      const { dispatch } = this.props;
+      const action = {
+        type: "TOGGLE_FORM",
+        dispatch(action);
+      }
     }
   };
 
   handleAddNewBooch = (newBooch) => {
     const { dispatch } = this.state.props;
-    const { id, name, group, price, flavor, amountLeft } = newBooch;
+    const { id, name, brand, price, flavor, amountLeft } = newBooch;
     const action = {
       type: 'ADD_BOOCH',
       id: id,
@@ -45,8 +45,10 @@ class BoochControl extends React.Component {
       amountLeft: amountLeft,
     }
     dispatch(action);
-    this.setState({formVisibleOnPage: false});
-    };
+    const action2 = {
+      type: 'TOGGLE_FORM'
+    }
+    dispatch(action2);
   };
   handleDeletingBooch = (id) => {
     const { dispatch } = this.props;
@@ -55,21 +57,20 @@ class BoochControl extends React.Component {
       id: id
     }
     dispatch(action);
-    this.setState({selectedBooch: null
-    });
+    this.setState({selectedBooch: null});
   };
 
   handleEditClick = () => {
     this.setState({ editing: true });
   };
 
-handleChangingSelectedBooch = (id) => {
-  const selectedBooch = this.props.masterBoochList[id];
-  this.setState({selectedBooch: selectedBooch});
-}
+  handleChangingSelectedBooch = (id) => {
+    const selectedBooch = this.props.masterBoochList[id];
+    this.setState({selectedBooch: selectedBooch});
+  }
 
   handleEditingBoochInList = (boochToEdit) => {
-       const { dispatch } = this.props;
+    const { dispatch } = this.props;
     const { id, name, brand, price, flavor, amountLeft } = boochToEdit;
     const action = {
       id: id,
@@ -88,8 +89,7 @@ handleChangingSelectedBooch = (id) => {
 
   handleSellBooch = (id) => {
     const selectedBooch = this.state.masterBoochList.filter(
-      (booch) => booch.id === id
-    )[0];
+      (booch) => booch.id === id)[0];
     if (selectedBooch.amountLeft > 0) {
       selectedBooch.amountLeft -= 1;
     } else {
@@ -98,7 +98,7 @@ handleChangingSelectedBooch = (id) => {
     this.setState({ selectedBooch: selectedBooch });
   };
 
-  render(); {
+  render() {
     let currentlyVisibleState = null;
     let buttonText = null;
 
@@ -120,7 +120,7 @@ handleChangingSelectedBooch = (id) => {
         />
       );
       buttonText = "Return to Booch List";
-    } else if (this.state.formVisibleOnPage) {
+    } else if (this.props.formVisibleOnPage) {
       currentlyVisibleState = (
         <NewBoochForm onNewBoochCreation={this.handleAddNewBooch} />
       );
@@ -140,6 +140,7 @@ handleChangingSelectedBooch = (id) => {
       </React.Fragment>
     );
   }
+}
 
 BoochControl.propTypes = {
   masterBoochList: PropTypes.object,
@@ -150,6 +151,7 @@ const mapStateToProps = (state) => {
     masterBoochList: state.masterBoochList,
     formVisibleOnPage: state.formVisibleOnPage,
   };
+  
 };
 
 BoochControl = connect(mapStateToProps)(BoochControl);
