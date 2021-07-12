@@ -26,9 +26,9 @@ class BoochControl extends React.Component {
     } else {
       const { dispatch } = this.props;
       const action = {
-        type: "TOGGLE_FORM",
-        dispatch(action);
+        type: "TOGGLE_FORM"
       }
+      dispatch(action);
     }
   };
 
