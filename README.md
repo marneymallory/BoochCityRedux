@@ -1,12 +1,12 @@
-# 🍻 ✨Booch City!✨ 🍻 
+# 🍻 ✨Booch City!-With Redux✨ 🍻 
 
-## React Independent Project: Week 2
+## React Independent Project: Week 3
 
 ### 7/2/21 by Marney Mallory
 
 ## Description
 
-This week's independent project was to build a React web application that would enable a bar or kombucha store to track their kegs. 
+This week's independent project was to build a React web application that would enable a bar or kombucha store to track their kegs while adding Redux functionality. 
 
 ## Objectives 
 
@@ -15,6 +15,10 @@ This week's independent project was to build a React web application that would 
 - As a user, I want to be able to click on a keg to see its detail page.
 - As a user, I want to see how many pints are left in a keg. Hint: A full keg has roughly 124 pints.
 - As a user, I want to be able to click a button next to a keg whenever I sell a pint of it. This should decrease the number of pints left by 1. Pints should not be able to go below 0.
+- React application works as expected and follows best practices, including using JSX, props, and prop types.
+- Redux is used for all state.
+- Jest is used to test all reducers.
+- Actions and action constants are used.
 
 ## Technologies Used
 
@@ -25,6 +29,7 @@ This week's independent project was to build a React web application that would 
 * 💾 _Webpack_
 * 🥾 _Bootstrap_
 * ⚛ _React_
+* _Redux_
 
 ## App Planning
 
@@ -32,12 +37,12 @@ This week's independent project was to build a React web application that would 
 
 ## Setup Instructions
 
-1. Clone the repository: `$ git clone https://github.com/marneymallory/BoochCity`.
-2. Navigate to the `BoochCity/` directory on your computer.
+1. Clone the repository: `$ git clone https://github.com/marneymallory/BoochCityRedux`.
+2. Navigate to the `BoochCityRedux/` directory on your computer.
 3. Open with your preferred text editor to view the code base.
 4. To start a development server and view the project in the browser:
 
-    * _Navigate to `BoochCity/` in your command line_
+    * _Navigate to `BoochCityRedux/` in your command line_
     * _Run the command `npm install` to install dependencies_
     * _Optionally, run the command `npm run build` to make a bundle of the files_
     * _Finally, run the command `npm run start` to start a development server_
@@ -114,7 +119,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 ## 🐛 Known Bugs
-* _Haven't figured out how to do last two required functionalities. To Be Continued..._
+* _Still working on adding actions for booch selling functionality_
 
 ## License
 _MIT © 2021 Marney Mallory_
